@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0,viewport-fit=cover">
+    <meta name="format-detection" content="telephone=yes"/>
+    <meta name="Description" content="cloud-app"/>
+    <meta name="Keywords" content="cloud-app"/>
+    <meta name="theme-color" content="#1A1514"/>
+    <title>cloud-app</title>
+    <style>
+        html {
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+        }
+        body {
+            width: 100%;
+            height: 100%;
+            /*background-color: #041A70;*/
+        }
+
+        /*body 也增加最大最小宽度限制，避免默认100%宽度的 block 元素跟随 body 而过大过小*/
+        body {
+            max-width: 540px !important;
+            min-width: 320px !important;
+            margin: 0 auto !important;
+            position: relative;
+        }
+    </style>
+    <script>
+        // history.pushState(null, null, document.URL);
+        // mta统计
+        var _mtac = {"performanceMonitor":1,"senseQuery":1};
+        (function() {
+            var mta = document.createElement("script");
+            mta.src = "//pingjs.qq.com/h5/stats.js?v2.0.4";
+            mta.setAttribute("name", "MTAH5");
+            mta.setAttribute("sid", "500727722");
+            mta.setAttribute("cid", "500727723");
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(mta, s);
+        })();
+
+        var shareData = {
+            disabled: true,
+            title: '云上',
+            desc: '云上',
+            link: window.location.href,
+            imgUrl: 'https://forguo-1302175274.cos.ap-shanghai.myqcloud.com/apps/science-week/share.jpg'
+        };
+
+    </script>
+</head>
+<body ontouchstart>
+    <noscript>请开启JavaScript以使用云上H5</noscript>
+    <div id="root"></div>
+</body>
+</html>

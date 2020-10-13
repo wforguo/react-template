@@ -1,0 +1,150 @@
+@import "../../assets/css/spinner";
+
+//@font-face {
+//    font-family: 'tab';
+//    src: url("../../assets/font/tab.ttf");
+//}
+
+.index {
+    width: 100%;
+    overflow-x: hidden;
+    background: #1A1514;
+
+    .logo {
+        margin-top: 15px;
+        margin-left: 13px;
+        width: 60px;
+        height: 28px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .ckj {
+        margin-top: 15px;
+        margin-left: 10px;
+        width: 67px;
+        height: 27px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .banner {
+        width: 100%;
+        margin-top: -58px;
+        min-height: 300px;
+    }
+
+    .nav-bar {
+        width: 343px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        &-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 44px;
+            border-radius: 22px;
+            border: 2px solid transparent;
+            font-size: 17px;
+            color: #DDC1A1;
+
+            &-active {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                pointer-events: none;
+                height: 44px;
+                border-radius: 22px;
+                width: 110px;
+                font-size: 20px;
+                color: #FFFFFF;
+                background: linear-gradient(273deg, rgba(182, 138, 86, 0) 0%, #B68A56 100%);
+                border: 2px solid #EFBA7A;
+                transition: ease all 300ms;
+            }
+        }
+    }
+
+    .product {
+        &-list {
+            width: 343px;
+            margin: 20px auto;
+        }
+
+        &-item {
+            width: 343px;
+            height: 164px;
+            padding-left: 22px;
+            padding-top: 17px;
+            box-sizing: border-box;
+            background: #fff url("https://zc-oss.zcrubber.com/upload/files/2020/08/28/item-bg.jpg") no-repeat 50% 50%;
+            background-size: 100% 100%;
+            border-radius: 6px;
+            margin-bottom: 16px;
+            overflow: hidden;
+            position: relative;
+
+            &:hover {
+                opacity: 0.9;
+            }
+
+            &:active {
+                opacity: 0.9;
+            }
+        }
+
+        &-name {
+            max-width: 180px;
+            height: 34px;
+            font-size: 26px;
+            color: #D8A463;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-weight: bold;
+        }
+        &-type {
+            max-width: 180px;
+            font-size: 34px;
+            font-weight: 900;
+            color: #000000;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        &-img-inner {
+            width: 117px;
+            height: 158px;
+            overflow: hidden;
+            position: absolute;
+            right: 9px;
+            bottom: 1px;
+        }
+        &-img {
+            width: 117px;
+            height: auto;
+            margin-top: 15px;
+        }
+    }
+
+    .no-data {
+        height: 155px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-size: 14px;
+        color: #fff;
+    }
+    .bottom-tips {
+        width: 347px;
+        height: 54px;
+        margin: 28px auto 34px;
+        border-radius: 6px;
+        background: url("https://zc-oss.zcrubber.com/upload/files/2020/09/03/bottom.png") no-repeat 50% 50%;
+        background-size: 347px 54px;
+    }
+}
