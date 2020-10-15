@@ -6,11 +6,13 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 import LazyLoad from 'react-lazyload';
-import {Modal} from "antd-mobile";
+import {Modal, Tabs } from "antd-mobile";
+
 const alert = Modal.alert;
 import Detail from "../Detail/Index";
 import './_Index.scss';
 import {dispatchSetSeriel, dispatchGetList} from "../../store/actions";
+// import topBanner from '../../assets/img/banner.png';
 
 const Spinner = () => (
     <div className="placeholder">
@@ -32,21 +34,22 @@ class Index extends Component {
         this.state = {
             detail: '',
             visible: false,
+            current: 0,
             navBar: [
                 {
-                    text: '大科学类',
+                    text: '物理科学',
                     active: true,
                     seriel: '1'
                 },
                 {
                     text: '医学类',
                     active: false,
-                    seriel: '3'
+                    seriel: '2'
                 },
                 {
-                    text: '物理科学',
+                    text: '大科学',
                     active: false,
-                    seriel: '4'
+                    seriel: '3'
                 }
             ]
         };
@@ -67,6 +70,7 @@ class Index extends Component {
         let seriel = navBar[current].text;
         this.setState({
             navBar,
+            current
         });
         this.props.dispatchSetSeriel(seriel);
     }
@@ -79,12 +83,6 @@ class Index extends Component {
     };
 
     onNavDetail = (detail) => {
-        if (!detail) {
-            alert('提示', '暂无详情图！', [
-                {text: '我知道了'},
-            ]);
-            return false;
-        }
         this.setState({
             visible: true,
             detail
@@ -92,44 +90,25 @@ class Index extends Component {
         scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
     };
 
-    renderList() {
+    renderList(index) {
         let {
             list,
         } = this.props;
-        let { seriel } = this.props;
         let product = [];
-        list.map(pro => {
-            if (pro.seriel === seriel) {
-                product.push(pro);
-            }
-            return pro;
-        });
+        product = list[index].qsList;
         if (product.length > 0) {
             return product.map((item, index) => {
                 return (
                     <div key={index} onClick={this.onNavDetail.bind(this, item.detailPictureUrl)}>
                         {
-                            seriel === item.seriel &&
                             <div className='product-item'>
                                 <p className='product-name'>
-                                    {item.firstLabel}
+                                    <span className="product-index">{index + 1}.</span>
+                                    <span className="product-question">{item.question}</span>
                                 </p>
-                                <p className='product-style'>
-                                    {item.secondLabel}
+                                <p className='write-btn'>
+                                    我来回答
                                 </p>
-                                <p className='product-type'>
-                                    {item.figure}
-                                </p>
-                                <div className='product-img-inner'>
-                                    <LazyLoad
-                                        key={index}
-                                        offset={[200, 200]}
-                                        placeholder={<Spinner />}
-                                        debounce={100}
-                                    >
-                                        <img className='product-img' src={item.headPictureUrl} alt=""/>
-                                    </LazyLoad>
-                                </div>
                             </div>
                         }
                     </div>
@@ -153,13 +132,24 @@ class Index extends Component {
             loading
         } = this.props;
 
+        const tabs = [
+            { title: 'First Tab', sub: '1' },
+            { title: 'Second Tab', sub: '2' },
+            { title: 'Third Tab', sub: '3' },
+        ];
+
         return (
             <div className='page index' id='index'>
+                <div className="top-banner">
+                    <div className="index-slogan">星星点灯</div>
+                    <div className="index-theme">中小学生问题</div>
+                </div>
+
                 <div className="nav-bar">
                     {
                         navBar.map((item, index) => {
                             return (
-                                <div className={item.active ? 'nav-bar-item-active' : 'nav-bar-item'} key={index}
+                                <div className={item.active ? 'nav-bar-item active' : 'nav-bar-item'} key={index}
                                     onClick={this.onNavClick.bind(this, index)}>
                                     {item.text}
                                 </div>
@@ -167,14 +157,45 @@ class Index extends Component {
                         })
                     }
                 </div>
-                {
-                    !loading && list.length > 0 &&
-                    <div className="product-list">
+
+                <Tabs tabs={tabs}
+                    initialPage={1}
+                    page={this.state.current}
+                    onChange={(tab, index) => {console.log('onChange', index, tab);}}
+                    onTabClick={(tab, index) => {console.log('onTabClick', index, tab);}}
+                >
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
                         {
-                            this.renderList()
+                            !loading && list.length > 0 &&
+                            <div className="product-list">
+                                {
+                                    this.renderList(0)
+                                }
+                            </div>
                         }
                     </div>
-                }
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        {
+                            !loading && list.length > 0 &&
+                            <div className="product-list">
+                                {
+                                    this.renderList(1)
+                                }
+                            </div>
+                        }
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                        {
+                            !loading && list.length > 0 &&
+                            <div className="product-list">
+                                {
+                                    this.renderList(2)
+                                }
+                            </div>
+                        }
+                    </div>
+                </Tabs>
+
                 {
                     (!list || list.length <= 0) &&
                     <div className="no-data">

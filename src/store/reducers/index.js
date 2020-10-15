@@ -3,7 +3,7 @@ import {GET_DETAIL, GET_LIST, SET_SERIEL} from "../constants";
 const defaultState = {
     list: [],
     loading: true,
-    seriel: '超越系列'
+    seriel: '物理科学'
 };
 
 export default (state = defaultState, action) => {

@@ -1,88 +1,88 @@
 @import "../../assets/css/spinner";
 
-//@font-face {
-//    font-family: 'tab';
-//    src: url("../../assets/font/tab.ttf");
-//}
+@font-face {
+    font-family: 'YouShe';
+    src: url("../../assets/font/YouShe-subfont.ttf");
+}
 
 .index {
     width: 100%;
+    min-height: 100vh;
+    overflow-y: auto;
     overflow-x: hidden;
-    background: #1A1514;
+    background: #004683;
 
-    .logo {
-        margin-top: 15px;
-        margin-left: 13px;
-        width: 60px;
-        height: 28px;
-        position: relative;
-        z-index: 1;
-    }
-
-    .ckj {
-        margin-top: 15px;
-        margin-left: 10px;
-        width: 67px;
-        height: 27px;
-        position: relative;
-        z-index: 1;
-    }
-
-    .banner {
+    .top-banner {
         width: 100%;
-        margin-top: -58px;
-        min-height: 300px;
+        height: 209px;
+        background: url("../../assets/img/banner.png") no-repeat 50% 0;
+        background-size: 100% 100%;
+        font-family: 'YouShe';
+        position: relative;
+        color: #fff;
+        .index-slogan {
+            position: absolute;
+            left: 0;
+            top: 90px;
+            width: 100%;
+            font-size: 35px;
+            text-align: center;
+        }
+        .index-theme {
+            position: absolute;
+            left: 235px;
+            top: 145px;
+            font-size: 18px;
+            text-align: center;
+        }
     }
 
     .nav-bar {
-        width: 343px;
+        width: 323px;
         margin: 0 auto;
         display: flex;
         align-items: center;
         justify-content: space-around;
         &-item {
+            width: 105px;
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 44px;
-            border-radius: 22px;
-            border: 2px solid transparent;
-            font-size: 17px;
-            color: #DDC1A1;
-
-            &-active {
-                display: flex;
-                align-items: center;
-                justify-content: center;
+            height: 36px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #FFFFFF;
+            background: url("../../assets/img/nav-item.png") no-repeat 50% 50%;
+            background-size: 100% 100%;
+            transition: ease all 300ms;
+            &.active {
                 pointer-events: none;
-                height: 44px;
-                border-radius: 22px;
-                width: 110px;
-                font-size: 20px;
-                color: #FFFFFF;
-                background: linear-gradient(273deg, rgba(182, 138, 86, 0) 0%, #B68A56 100%);
-                border: 2px solid #EFBA7A;
+                background: url("../../assets/img/nav-active.png") no-repeat 50% 50%;
+                background-size: 100% 100%;
                 transition: ease all 300ms;
             }
         }
     }
 
+    .am-tabs-tab-bar-wrap {
+        display: none;
+        opacity: 0;
+    }
     .product {
         &-list {
-            width: 343px;
-            margin: 20px auto;
+            width: 321px;
+            margin: 5px auto 30px;
+            background: #1580aa;
         }
 
         &-item {
-            width: 343px;
-            height: 164px;
-            padding-left: 22px;
-            padding-top: 17px;
+            width: 305px;
+            padding: 20px 12px 30px;
             box-sizing: border-box;
-            background: #fff url("https://zc-oss.zcrubber.com/upload/files/2020/08/28/item-bg.jpg") no-repeat 50% 50%;
+            background: url("../../assets/img/item-bg.png") no-repeat 50% 50%;
             background-size: 100% 100%;
             border-radius: 6px;
-            margin-bottom: 16px;
+            margin: 20px auto 26px;
             overflow: hidden;
             position: relative;
 
@@ -93,40 +93,41 @@
             &:active {
                 opacity: 0.9;
             }
+            .write-btn {
+                width: 140px;
+                padding-right: 18px;
+                height: 30px;
+                line-height: 30px;
+                margin: 28px auto 0;
+                font-size: 24px;
+                font-family: 'YouShe';
+                color: #FFFFFF;
+                text-align: center;
+                background: #27b6d3 url("../../assets/img/arrow-right.png") no-repeat 110px 50%;
+                background-size: 14px 20px;
+            }
         }
 
         &-name {
-            max-width: 180px;
-            height: 34px;
-            font-size: 26px;
-            color: #D8A463;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            font-weight: bold;
-        }
-        &-type {
-            max-width: 180px;
-            font-size: 34px;
-            font-weight: 900;
-            color: #000000;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        &-img-inner {
-            width: 117px;
-            height: 158px;
-            overflow: hidden;
-            position: absolute;
-            right: 9px;
-            bottom: 1px;
-        }
-        &-img {
-            width: 117px;
-            height: auto;
             margin-top: 15px;
+            display: flex;
+            justify-content: space-between;
+        }
+        &-index {
+            width: auto;
+            height: 14px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #FFFFFF;
+            line-height: 23px;
+            font-style: italic;
+        }
+        &-question {
+            width: 240px;
+            font-size: 12px;
+            font-weight: 400;
+            color: #FFFFFF;
+            line-height: 25px;
         }
     }
 

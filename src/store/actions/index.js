@@ -13,21 +13,10 @@ export const dispatchGetList = () => {
         Toast.loading('加载中...', 0);
         try {
             let res = await request({
-                url: '/api/haotian/productIntroduce/all',
-                method: 'get'
+                url: '/star/getQsList',
+                method: 'post'
             });
-            let data = res.data || [];
-            let list = data.map(item => {
-                return {
-                    detailPictureUrl: item.detailPictureUrl,
-                    figure: item.figure,
-                    firstLabel: item.firstLabel,
-                    headPictureUrl: item.headPictureUrl,
-                    id: item.id,
-                    secondLabel: item.secondLabel,
-                    seriel: item.seriel,
-                };
-            });
+            let list = res.data || [];
             dispatch({
                 type: GET_LIST,
                 data: list

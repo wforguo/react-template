@@ -10,7 +10,7 @@ import { titlePrefix } from '../util';
 import Index from '../views/Index/Index.jsx';
 
 class AppRouter extends React.Component {
-    async componentDidMount() {
+    async componentWillMount() {
         try {
             await wxInit(window.shareData); // 微信分享
         } catch (e) {

@@ -45,20 +45,20 @@ request.interceptors.request.use(config => {
 request.interceptors.response.use(res => {
     const {data, status} = res;
     if (status !== 200) {
-        Toast.info(codeMessage[status] || data.message || '当前访问人数过多，请稍后再试');
-        return Promise.reject(codeMessage[status] || data.message || '当前访问人数过多，请稍后再试');
+        Toast.info(codeMessage[status] || data.msg || '当前访问人数过多，请稍后再试');
+        return Promise.reject(codeMessage[status] || data.msg || '当前访问人数过多，请稍后再试');
     }
-    if (data.code !== 200) {
-        Toast.info(data.message);
+    if (data.error_code !== 0) {
+        Toast.info(data.msg);
         return Promise.reject(data);
     }
     return Promise.resolve(data);
 }, error => {
     console.log(JSON.stringify(error));
-    alert('提示', error.message || '当前访问人数过多，请稍后再试', [
+    alert('提示', error.msg || '当前访问人数过多，请稍后再试', [
         {text: '我知道了'},
     ]);
-    return Promise.reject(error.message || new Error('当前访问人数过多，请稍后再试'));
+    return Promise.reject(error.msg || new Error('当前访问人数过多，请稍后再试'));
 });
 
 export default request;

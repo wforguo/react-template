@@ -42,10 +42,15 @@ module.exports = merge(common, {
                 changeOrigin: true,
                 pathRewrite: {'^/api': '/api'}
             },
+            '/star/*': {
+                target: domain[environmental].api,
+                changeOrigin: true,
+                pathRewrite: {'^/star': '/star'}
+            },
             '/wx/*': {
                 target: 'https://forguo.cn',
                 changeOrigin: true,
-                pathRewrite: {'^/wx': '/api'}
+                pathRewrite: {'^/wx': '/wx'}
             }
         }
     },
