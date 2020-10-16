@@ -23,7 +23,9 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, '../dist'),
         filename: "js/[name].[chunkhash:8].js",
-        publicPath: '/',
+        publicPath: _DEV_
+            ? '/'
+            : 'https://app.forguo.cn/apps/scientist-summit-quest',
     },
     module: {
         rules: [

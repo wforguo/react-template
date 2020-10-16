@@ -4,6 +4,7 @@
  * @date: 2020/9/1
 */
 const { merge } = require('webpack-merge');
+const path = require('path');
 
 // 打包版权声明
 const { BannerPlugin } = require('webpack');

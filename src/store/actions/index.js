@@ -13,7 +13,7 @@ export const dispatchGetList = () => {
         Toast.loading('加载中...', 0);
         try {
             let res = await request({
-                url: '/star/getQsList',
+                url: 'https://forguo.cn/star/getQsList',
                 method: 'post'
             });
             let list = res.data || [];

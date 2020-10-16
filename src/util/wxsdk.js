@@ -10,7 +10,7 @@ function getConfig () {
     return new Promise((resolve) => {
         axios({
             method: 'post',
-            url: `//www.forguo.cn/api/weixin/share`,
+            url: `https://www.forguo.cn/api/weixin/share`,
             data: qs.stringify({
                 url
             })

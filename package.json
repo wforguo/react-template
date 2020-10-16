@@ -7,6 +7,8 @@
         "startDev": "./node_modules/.bin/webpack-dev-server -d --hot --config ./config/webpack.dev.js --watch --progress --color",
         "start": "npm run startDev",
         "dev": "npm run start",
+        "deploy": "cloudbase framework:deploy",
+        "deploy:client": "cloudbase framework:deploy client",
         "build": "node ./build/build.js",
         "test": "react-scripts test",
         "eject": "react-scripts eject"
