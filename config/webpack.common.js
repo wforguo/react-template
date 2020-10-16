@@ -16,25 +16,26 @@ const WebpackBar = require('webpackbar');
 
 const { name } = require('../package');
 
-const _DEV_ = process.env === 'development';
+const _DEV_ = process.env.NODE_ENV === 'development';
 
 module.exports = {
     entry: ['babel-polyfill', path.resolve(__dirname, '../src/App.js')],
     output: {
         path: path.resolve(__dirname, '../dist'),
         filename: "js/[name].[chunkhash:8].js",
-        publicPath: _DEV_
-            ? '/'
-            : 'https://app.forguo.cn/apps/scientist-summit-quest',
+        publicPath: process.env.NODE_ENV === 'development'
+            ? 'https://cloud-app.com.cn/apps/scientist-summit-quest/'
+            : 'https://cloud-app.com.cn/apps/scientist-summit-quest/'
+            // 'https://cloud-app.com.cn/apps/scientist-summit-quest/'
     },
     module: {
         rules: [
-            {
-                enforce: "pre",
-                test: /\.js|jsx$/,
-                include: path.resolve(__dirname, '../src'),
-                use: ['eslint-loader']
-            },
+            // {
+            //     enforce: "pre",
+            //     test: /\.js|jsx$/,
+            //     include: path.resolve(__dirname, '../src'),
+            //     use: ['eslint-loader']
+            // },
             {
                 test: /\.js|jsx$/,
                 use: ["thread-loader", "babel-loader?cacheDirectory=true"],

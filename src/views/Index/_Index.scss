@@ -2,7 +2,7 @@
 
 @font-face {
     font-family: 'YouShe';
-    src: url("../../assets/font/YouShe-subfont.ttf");
+    src: url("../../assets/font/YouShe.ttf");
 }
 
 .index {
@@ -10,8 +10,8 @@
     min-height: 100vh;
     overflow-y: auto;
     overflow-x: hidden;
-    background: #004683;
-
+    background: #004683 url("../../assets/img/index-bg.png") no-repeat 50% 50%;
+    background-size: 100% auto;
     .top-banner {
         width: 100%;
         height: 209px;
@@ -72,20 +72,55 @@
         &-list {
             width: 321px;
             margin: 5px auto 30px;
-            background: #1580aa;
+            background: linear-gradient(180deg, #1B7CA0 0%, #032474 100%);
+            position: relative;
+            &:after {
+                top: 0;
+                left: 0;
+                right: 0;
+                position: absolute;
+                content: '';
+                width: 100%;
+                height: 2px;
+                background: RGBA(1, 104, 164, 0.5) url("../../assets/img/border-top.png") no-repeat 50% 0;
+                background-size: 100% auto;
+            }
         }
 
-        &-item {
-            width: 305px;
-            padding: 20px 12px 30px;
-            box-sizing: border-box;
-            background: url("../../assets/img/item-bg.png") no-repeat 50% 50%;
-            background-size: 100% 100%;
-            border-radius: 6px;
-            margin: 20px auto 26px;
-            overflow: hidden;
+        &-slide {
+            width: 300px;
+            margin: 0 auto;
             position: relative;
-
+            padding: 20px 0;
+            box-sizing: border-box;
+            &:before {
+                content: '';
+                width: 25px;
+                height: 20px;
+                position: absolute;
+                background: url("../../assets/img/semicolon-left.png") no-repeat 50% 50%;
+                background-size: 100% 100%;
+                left: 10px;
+                top: 10px;
+            }
+            &:after {
+                content: '';
+                width: 25px;
+                height: 20px;
+                position: absolute;
+                background: url("../../assets/img/semicolon-right.png") no-repeat 50% 50%;
+                background-size: 100% 100%;
+                right: 10px;
+                bottom: 10px;
+            }
+        }
+        &-item {
+            border-radius: 6px;
+            margin: 0 auto;
+            padding: 5px 15px 20px;
+            overflow: hidden;
+            background: url("../../assets/img/quest-border.png") no-repeat 50% 50%;
+            background-size: 100% 100%;
             &:hover {
                 opacity: 0.9;
             }
@@ -139,13 +174,5 @@
         text-align: center;
         font-size: 14px;
         color: #fff;
-    }
-    .bottom-tips {
-        width: 347px;
-        height: 54px;
-        margin: 28px auto 34px;
-        border-radius: 6px;
-        background: url("https://zc-oss.zcrubber.com/upload/files/2020/09/03/bottom.png") no-repeat 50% 50%;
-        background-size: 347px 54px;
     }
 }

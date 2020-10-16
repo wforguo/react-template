@@ -33,6 +33,16 @@ export const dispatchGetList = () => {
     };
 };
 
+export const dispatchSubmit = (data) => {
+    return () => (
+        request({
+            url: 'https://forguo.cn/star/answer',
+            method: 'post',
+            data
+        })
+    )
+};
+
 export const dispatchSetSeriel = (seriel) => {
     return (dispatch) => {
         dispatch({

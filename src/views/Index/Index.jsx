@@ -5,26 +5,10 @@
  */
 import React, {Component} from "react";
 import {connect} from "react-redux";
-import LazyLoad from 'react-lazyload';
 import {Modal, Tabs } from "antd-mobile";
-
-const alert = Modal.alert;
 import Detail from "../Detail/Index";
 import './_Index.scss';
 import {dispatchSetSeriel, dispatchGetList} from "../../store/actions";
-// import topBanner from '../../assets/img/banner.png';
-
-const Spinner = () => (
-    <div className="placeholder">
-        <div className="spinner">
-            <div className="rect1"></div>
-            <div className="rect2"></div>
-            <div className="rect3"></div>
-            <div className="rect4"></div>
-            <div className="rect5"></div>
-        </div>
-    </div>
-);
 
 let scrollTop = 0;
 
@@ -82,10 +66,18 @@ class Index extends Component {
         document.documentElement.scrollTop = scrollTop;
     };
 
-    onNavDetail = (detail) => {
+    onNavDetail = (item) => {
+        console.log(item);
+        const {
+            categoryId,
+            id
+        } = item;
         this.setState({
             visible: true,
-            detail
+            detail: {
+                categoryId,
+                qsId: id
+            }
         });
         scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
     };
@@ -99,7 +91,7 @@ class Index extends Component {
         if (product.length > 0) {
             return product.map((item, index) => {
                 return (
-                    <div key={index} onClick={this.onNavDetail.bind(this, item.detailPictureUrl)}>
+                    <div key={index} onClick={this.onNavDetail.bind(this, item)} className='product-slide'>
                         {
                             <div className='product-item'>
                                 <p className='product-name'>

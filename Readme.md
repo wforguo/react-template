@@ -130,8 +130,8 @@ http://forguo.cn/star/getQsList这个是获取问题列表接口
 http://forguo.cn/star/answer这个是回答接口
 回答格式：
 {
-    "categoryId":1,
-    "qsId":1,
-    "content":"测试",
+    "categoryId": 1,
+    "qsId": 1,
+    "content": "测试",
     "name":"test"
 }
