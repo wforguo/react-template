@@ -10,7 +10,7 @@ function getConfig () {
     return new Promise((resolve) => {
         axios({
             method: 'post',
-            url: `https://www.forguo.cn/api/weixin/share`,
+            url: 'https://api.cloud-app.com.cn/wechat/jssdk/share',
             data: qs.stringify({
                 url
             })
@@ -19,20 +19,8 @@ function getConfig () {
             resolve(res);
         }, (err) => {
             console.log(err);
-            axios({
-                method: 'post',
-                url: `//server.forguo.cn/wxShare`,
-                data: qs.stringify({
-                    url
-                })
-            }).then(res => {
-                let data = res.data;
-                resolve(data);
-            }, (e) => {
-                console.log(e);
-            });
         });
-    });
+    })
 }
 
 async function wxInit (shareData) {
