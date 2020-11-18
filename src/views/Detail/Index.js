@@ -14,13 +14,13 @@ const alert = Modal.alert;
 class Detail extends Component {
     constructor(props) {
         super(props);
-        this.state =  {
+        this.state = {
             name: '',
             department: '',
             area: '',
             content: '',
             loading: false
-        }
+        };
     }
     componentDidMount() {
         const {
@@ -46,7 +46,7 @@ class Detail extends Component {
     onChange (name, value) {
         this.setState({
             [name]: value
-        })
+        });
     }
 
     onBlur () {

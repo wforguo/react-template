@@ -40,7 +40,7 @@ export const dispatchSubmit = (data) => {
             method: 'post',
             data
         })
-    )
+    );
 };
 
 export const dispatchSetSeriel = (seriel) => {
