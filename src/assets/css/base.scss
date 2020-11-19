@@ -23,6 +23,12 @@ body {
     user-select: none;
 }
 
+a, img {-webkit-touch-callout: none; /* 禁止长按链接与图片弹出菜单 */}
+
+input,textarea {
+    user-select: text! important; // 输入框在真机光标不显示
+}
+
 html {
     margin: 0;
     padding: 0;
