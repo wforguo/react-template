@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import AppRouter from './router/index.jsx';
-import './util/flexible';
+import './libs/flexible';
 import store from "./store";
 import './assets/css/index.scss';
 

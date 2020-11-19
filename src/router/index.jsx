@@ -4,8 +4,8 @@
  * @date: 2020/9/2
 */
 import React from "react";
-import { wxInit } from '../util/wxsdk';
-import { titlePrefix } from '../util/util';
+import { wxInit } from '../libs/wxsdk';
+import { titlePrefix } from '../libs/util';
 
 import Index from '../views/Index/Index.jsx';
 

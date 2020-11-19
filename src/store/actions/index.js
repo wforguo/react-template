@@ -1,4 +1,4 @@
-import request from "../../util/request";
+import request from "../../libs/request";
 import {GET_LIST, SET_SERIEL} from "../constants";
 import {Toast} from "antd-mobile";
 
