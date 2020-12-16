@@ -23,10 +23,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, '../dist'),
         filename: "js/[name].[chunkhash:8].js",
-        publicPath: process.env.NODE_ENV === 'development'
-            ? 'https://cloud-app.com.cn/apps/scientist-summit-quest/'
-            : 'https://cloud-app.com.cn/apps/scientist-summit-quest/'
-            // 'https://cloud-app.com.cn/apps/scientist-summit-quest/'
+        publicPath: ''
     },
     module: {
         rules: [

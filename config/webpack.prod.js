@@ -27,6 +27,11 @@ const WebpackBar = require('webpackbar');
 const { name } = require('../package');
 
 module.exports = merge(common, {
+    output: {
+        path: path.resolve(__dirname, '../dist'),
+        filename: "js/[name].[chunkhash:8].js",
+        publicPath: 'https://cloud-app.com.cn/apps/scientist-summit-quest/'
+    },
     mode: 'production',
     stats: {
         all: false,
